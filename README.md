@@ -60,6 +60,20 @@ Para formatear el código con Prettier:
 npm run format
 ```
 
+
+## Integración Continua
+
+Este proyecto utiliza GitHub Actions para implementar un flujo de Integración Continua (CI). El flujo se ejecuta automáticamente en cada push a la rama main y en los pull requests hacia main.
+
+El flujo de CI realiza las siguientes operaciones:
+- Checkout del repositorio
+- Configuración de Node.js
+- Instalación de dependencias
+- Ejecución del linter
+- Compilación del proyecto
+- Ejecución de pruebas (cuando estén implementadas)
+
+Puedes ver el estado de las ejecuciones de CI en la pestaña "Actions" del repositorio.
 ## Desarrollo con Dev Containers
 
 Este proyecto está configurado para usar Dev Containers con Visual Studio Code, lo que permite desarrollar dentro de un entorno containerizado con todas las herramientas necesarias preinstaladas.

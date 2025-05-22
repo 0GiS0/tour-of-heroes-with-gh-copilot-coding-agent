@@ -6,7 +6,7 @@ export class HeroService {
     return Promise.resolve([]);
   }
 
-  getHeroById(id: number): Promise<Hero | null> {
+  getHeroById(_id: number): Promise<Hero | null> {
     return Promise.resolve(null);
   }
 }
