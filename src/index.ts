@@ -16,6 +16,6 @@ app.use('/api/heroes', heroRoutes);
 app.use(errorHandler);
 
 // Start server
-app.listen(config.PORT, () => {
+app.listen(Number(config.PORT), () => {
   console.log(`Server running on port ${config.PORT} in ${config.NODE_ENV} mode`);
 });
