@@ -1,2 +1,61 @@
-# tour-of-heroes-with-gh-copilot-coding-agent
-Este repositorio se ha confeccionado usando Github Copilot con su agente Coding
+# Tour of Heroes API
+
+This repository was created using GitHub Copilot with its Coding agent. It is a REST API for managing superheroes, implemented with Node.js and TypeScript.
+
+## Project Structure
+
+```
+
+## Requisitos
+
+- Node.js (v14+)
+- npm (v6+)
+
+## Instalación
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/0GiS0/tour-of-heroes-with-gh-copilot-coding-agent.git
+cd tour-of-heroes-with-gh-copilot-coding-agent
+```
+
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+## Desarrollo
+
+Para ejecutar la aplicación en modo de desarrollo:
+```bash
+npm run dev
+```
+
+## Construir y Ejecutar para Producción
+
+1. Construir la aplicación:
+```bash
+npm run build
+```
+
+2. Ejecutar la aplicación:
+```bash
+npm start
+```
+
+## Linting y Formateo
+
+Para ejecutar el linter:
+```bash
+npm run lint
+```
+
+Para corregir automáticamente los problemas de linting:
+```bash
+npm run lint:fix
+```
+
+Para formatear el código con Prettier:
+```bash
+npm run format
+```
