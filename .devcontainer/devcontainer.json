@@ -1,0 +1,76 @@
+{
+  // 📝 Nombre y descripción del Dev Container
+  "name": "Tour of Heroes API - Development Container",
+  "description": "Development environment for Tour of Heroes API with MongoDB support",
+  
+  // 🖥️ Imagen base para TypeScript/Node.js
+  // Usamos una imagen oficial de Microsoft para TypeScript y Node.js
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
+  
+  // 🗃️ Configuración del Docker Compose para servicios adicionales
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  
+  // ⚙️ Características adicionales para el contenedor
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // 🧩 Extensiones recomendadas para el desarrollo
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // TypeScript y JavaScript
+        "ms-vscode.vscode-typescript-next", // TypeScript avanzado
+        "dbaeumer.vscode-eslint",          // Linting
+        "esbenp.prettier-vscode",          // Formato de código
+        
+        // MongoDB
+        "mongodb.mongodb-vscode",          // Soporte y explorador MongoDB
+        
+        // Docker
+        "ms-azuretools.vscode-docker",     // Manejo de contenedores
+        
+        // Git
+        "eamodio.gitlens"                  // Mejoras Git
+      ],
+      
+      // ⚙️ Configuraciones específicas para el workspace
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "eslint.validate": ["typescript", "javascript"],
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      }
+    }
+  },
+  
+  // 🔄 Comandos para ejecutar después de crear el contenedor
+  "postCreateCommand": "npm install",
+  
+  // 🚪 Configuración de puertos a exponer
+  "forwardPorts": [3000, 27017],
+  "portsAttributes": {
+    "3000": {
+      "label": "Application",
+      "onAutoForward": "notify"
+    },
+    "27017": {
+      "label": "MongoDB",
+      "onAutoForward": "silent"
+    }
+  },
+
+  // 👤 Usuario no-root para mayor seguridad
+  "remoteUser": "node"
+}
