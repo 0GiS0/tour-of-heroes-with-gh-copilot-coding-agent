@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # 🖥️ Servicio principal de la aplicación
+  app:
+    # Usamos el Dockerfile para construir el contenedor
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    
+    # 📁 Volúmenes para sincronizar el código y paquetes de node
+    volumes:
+      - ..:/workspaces/${localWorkspaceFolderBasename}:cached
+      - node_modules:/workspaces/${localWorkspaceFolderBasename}/node_modules
+    
+    # 🛑 Evitar que el contenedor se cierre
+    command: sleep infinity
+    
+    # 🔄 Configurar variables de entorno
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongodb:27017/heroes
+    
+    # 🌐 Configuración de red para comunicarse con MongoDB
+    networks:
+      - heroes-network
+    
+    # ⚙️ Dependencias: asegurarse de que MongoDB esté disponible antes de iniciar la app
+    depends_on:
+      - mongodb
+
+  # 🗃️ Servicio de base de datos MongoDB
+  mongodb:
+    # Imagen oficial de MongoDB
+    image: mongo:6.0
+    
+    # 📁 Volumen para persistencia de datos
+    volumes:
+      - mongodb-data:/data/db
+    
+    # 🌐 Exponer puerto estándar de MongoDB
+    expose:
+      - 27017
+    
+    # 🔄 Configuración básica de MongoDB
+    environment:
+      - MONGO_INITDB_DATABASE=heroes
+    
+    # 🌐 Red compartida con la aplicación
+    networks:
+      - heroes-network
+
+# 📁 Definición de volúmenes
+volumes:
+  node_modules:
+  mongodb-data:
+
+# 🌐 Definición de redes
+networks:
+  heroes-network:
+    driver: bridge
