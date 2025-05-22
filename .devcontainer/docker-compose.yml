@@ -33,7 +33,7 @@ services:
   # 🗃️ Servicio de base de datos MongoDB
   mongodb:
     # Imagen oficial de MongoDB
-    image: mongo:6.0
+    image: mongo:8.0
     
     # 📁 Volumen para persistencia de datos
     volumes:

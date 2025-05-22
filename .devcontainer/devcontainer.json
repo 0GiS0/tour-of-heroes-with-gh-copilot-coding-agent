@@ -5,7 +5,7 @@
   
   // 🖥️ Imagen base para TypeScript/Node.js
   // Usamos una imagen oficial de Microsoft para TypeScript y Node.js
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
   
   // 🗃️ Configuración del Docker Compose para servicios adicionales
   "dockerComposeFile": "docker-compose.yml",
