@@ -12,10 +12,10 @@ Esta carpeta contiene la configuración del Dev Container para el proyecto Tour 
 
 El Dev Container está configurado con:
 
-1. **Base**: Imagen TypeScript-Node.js 18 oficial de Microsoft
+1. **Base**: Imagen TypeScript-Node.js 22-bookworm oficial de Microsoft
 2. **Servicios**:
    - **App**: El servicio principal para la aplicación
-   - **MongoDB**: Base de datos para almacenar información de héroes
+   - **MongoDB**: Base de datos (versión 8.0) para almacenar información de héroes
 
 ## 💡 Buenas prácticas implementadas
 

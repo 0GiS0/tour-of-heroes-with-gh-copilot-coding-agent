@@ -78,8 +78,8 @@ Este proyecto está configurado para usar Dev Containers con Visual Studio Code,
 
 ### Características incluidas
 
-- 🖥️ Entorno Node.js/TypeScript preconfigurado
-- 🗃️ MongoDB como servicio de base de datos
+- 🖥️ Entorno Node.js/TypeScript preconfigurado (Node.js 22 con Debian Bookworm)
+- 🗃️ MongoDB como servicio de base de datos (versión 8.0)
 - 🧩 Extensiones recomendadas para desarrollo ya instaladas:
   - TypeScript y JavaScript (linting, formateo)
   - Soporte para MongoDB
