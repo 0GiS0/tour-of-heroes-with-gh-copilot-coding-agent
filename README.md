@@ -1,18 +1,9 @@
 # Tour of Heroes API
 
-Este repositorio se ha confeccionado usando Github Copilot con su agente Coding. Es una API REST para la gestión de superhéroes implementada con Node.js y TypeScript.
+This repository was created using GitHub Copilot with its Coding agent. It is a REST API for managing superheroes, implemented with Node.js and TypeScript.
 
-## Estructura del Proyecto
+## Project Structure
 
-```
-src/
-├── config/         # Configuración de la aplicación
-├── controllers/    # Controladores para manejar las solicitudes
-├── middlewares/    # Middlewares de Express
-├── models/         # Definición de modelos/interfaces
-├── routes/         # Rutas de la API
-├── services/       # Lógica de negocio
-└── utils/          # Utilidades y funciones auxiliares
 ```
 
 ## Requisitos
