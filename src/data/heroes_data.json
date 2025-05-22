@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Superman",
+    "alterEgo": "Clark Kent",
+    "powers": [
+      "Super Strength",
+      "Flight",
+      "Invulnerability",
+      "Super Speed",
+      "Heat Vision",
+      "Freeze Breath",
+      "X-Ray Vision",
+      "Superhuman Hearing",
+      "Healing Factor"
+    ],
+    "team": "Justice League",
+    "description": "Faster than a speeding bullet, more powerful than a locomotive… The Man of Steel fights a never-ending battle for truth, justice, and the American way.",
+    "image": "https://www.dc.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Superman_20190116_5c3fc2758f6a12.23849045.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Batman",
+    "alterEgo": "Bruce Wayne",
+    "powers": [
+      "Exceptional Martial Artist",
+      "Combat Strategy",
+      "Inexhaustible Wealth",
+      "Brilliant Deductive Skill",
+      "Advanced Technology"
+    ],
+    "team": "Justice League",
+    "description": "One of the most iconic fictional characters in the world, Batman has dedicated his life to an endless crusade, a war on all criminals in the name of his murdered parents, who were taken from him when he was just a child.",
+    "image": "https://www.dc.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Batman_20190116_5c3fc4b40faec1.04176012.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Wonder Woman",
+    "alterEgo": "Diana Prince",
+    "powers": [
+      "Super Strength",
+      "Invulnerability",
+      "Flight",
+      "Combat Skill",
+      "Combat Strategy",
+      "Superhuman Agility",
+      "Healing Factor",
+      "Magic Weaponry"
+    ],
+    "team": "Justice League",
+    "description": "Beautiful as Aphrodite, wise as Athena, swifter than Hermes, and stronger than Hercules, Princess Diana of Themyscira fights for peace in Man's World.",
+    "image": "https://www.dc.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_WonderWoman_20190116_5c3fc6aa51d0e3.90251513.jpg"
+  },
+  {
+    "id": 4,
+    "name": "The Flash",
+    "alterEgo": "Barry Allen",
+    "powers": [
+      "Super Speed",
+      "Intangibility",
+      "Superhuman Agility",
+      "Time Travel",
+      "Creates and Controls Lightning",
+      "Multiversal Knowledge"
+    ],
+    "team": "Justice League",
+    "description": "Three men have held the title of 'The Fastest Man Alive'—Jay Garrick, Barry Allen and Wally West. Each of them redefined the word 'hero'.",
+    "image": "https://www.dc.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Flash_20190116_5c3fcaaa18f0e8.03668117.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Aquaman",
+    "alterEgo": "Arthur Curry",
+    "powers": [
+      "Super Strength",
+      "Durability",
+      "Control Over Sea Life",
+      "Exceptional Swimming Ability",
+      "Ability To Breathe Underwater"
+    ],
+    "team": "Justice League",
+    "description": "The son of a lighthouse keeper and an Atlantean queen, Arthur Curry is the bridge between the surface world and his tumultuous realm of the sea.",
+    "image": "https://www.dc.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Aquaman_5c411a95e71072.35445903.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Green Lantern",
+    "alterEgo": "Hal Jordan",
+    "powers": [
+      "Hard Light Constructs",
+      "Instant Weaponry",
+      "Force Fields",
+      "Flight",
+      "Durability",
+      "Alien Technology"
+    ],
+    "team": "Justice League",
+    "description": "Test pilot Hal Jordan went from being a novelty, the first-ever human Green Lantern, to one of the most legendary Lanterns to ever wield a power ring.",
+    "image": "https://www.dc.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_GreenLantern_20190116_5c3fc8c14cbe12.59374004.jpg"
+  }
+]
