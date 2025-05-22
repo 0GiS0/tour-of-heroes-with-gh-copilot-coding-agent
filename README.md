@@ -1,159 +1,159 @@
 # Tour of Heroes API
 
-A REST API for managing superheroes, implemented with Node.js and TypeScript. This project provides a simple backend for the "Tour of Heroes" application with endpoints to fetch, create, update, and delete hero data.
+Una API REST para gestionar superhéroes, implementada con Node.js y TypeScript. Este proyecto proporciona un backend sencillo para la aplicación "Tour of Heroes" con endpoints para obtener, crear, actualizar y eliminar datos de héroes.
 
-## 📁 Project Structure
+## 📁 Estructura del Proyecto
 
 ```
 .
-├── .devcontainer/   # Dev Container configuration
-├── .github/         # GitHub Actions workflows
+├── .devcontainer/   # Configuración de Dev Container
+├── .github/         # Flujos de trabajo de GitHub Actions
 ├── src/
-│   ├── config/      # Application configuration
-│   ├── controllers/ # Request handlers
-│   ├── middlewares/ # Express middlewares
-│   ├── models/      # Data models and interfaces
-│   ├── routes/      # API route definitions
-│   ├── services/    # Business logic
-│   ├── utils/       # Utility functions
-│   └── index.ts     # Application entry point
-├── eslint.config.js # ESLint configuration
-├── package.json     # Project dependencies
-└── tsconfig.json    # TypeScript configuration
+│   ├── config/      # Configuración de la aplicación
+│   ├── controllers/ # Manejadores de peticiones
+│   ├── middlewares/ # Middlewares de Express
+│   ├── models/      # Modelos de datos e interfaces
+│   ├── routes/      # Definiciones de rutas API
+│   ├── services/    # Lógica de negocio
+│   ├── utils/       # Funciones de utilidad
+│   └── index.ts     # Punto de entrada de la aplicación
+├── eslint.config.js # Configuración de ESLint
+├── package.json     # Dependencias del proyecto
+└── tsconfig.json    # Configuración de TypeScript
 ```
 
-## 🚀 Installation and Prerequisites
+## 🚀 Instalación y Requisitos
 
-### Prerequisites
+### Requisitos
 
 - Node.js (v22+)
 - npm (v6+)
-- MongoDB (for local development without containers)
+- MongoDB (para desarrollo local sin contenedores)
 
-### Installation
+### Instalación
 
-1. Clone the repository:
+1. Clonar el repositorio:
 ```bash
 git clone https://github.com/0GiS0/tour-of-heroes-with-gh-copilot-coding-agent.git
 cd tour-of-heroes-with-gh-copilot-coding-agent
 ```
 
-2. Install dependencies:
+2. Instalar dependencias:
 ```bash
 npm install
 ```
 
-## 🛠️ Basic Usage
+## 🛠️ Uso Básico
 
-### Development
+### Desarrollo
 
-To run the application in development mode with hot reloading:
+Para ejecutar la aplicación en modo de desarrollo con recarga automática:
 ```bash
 npm run dev
 ```
 
-### Building and Running for Production
+### Construir y Ejecutar para Producción
 
-1. Build the application:
+1. Construir la aplicación:
 ```bash
 npm run build
 ```
 
-2. Run the application:
+2. Ejecutar la aplicación:
 ```bash
 npm start
 ```
 
-### Linting and Formatting
+### Linting y Formateo
 
-Execute the linter:
+Ejecutar el linter:
 ```bash
 npm run lint
 ```
 
-Automatically fix linting issues:
+Corregir automáticamente los problemas de linting:
 ```bash
 npm run lint:fix
 ```
 
-Format code with Prettier:
+Formatear el código con Prettier:
 ```bash
 npm run format
 ```
 
-## 📦 Technologies Used
+## 📦 Tecnologías Utilizadas
 
-- **TypeScript**: Strongly typed programming language that builds on JavaScript
-- **Express**: Fast, minimalist web framework for Node.js
-- **MongoDB**: NoSQL document database
-- **Docker**: Containerization platform
-- **ESLint & Prettier**: Code quality and formatting tools
-- **GitHub Actions**: Continuous Integration workflows
+- **TypeScript**: Lenguaje de programación fuertemente tipado que se basa en JavaScript
+- **Express**: Framework web rápido y minimalista para Node.js
+- **MongoDB**: Base de datos de documentos NoSQL
+- **Docker**: Plataforma de contenedores
+- **ESLint & Prettier**: Herramientas de calidad y formateo de código
+- **GitHub Actions**: Flujos de trabajo de Integración Continua
 
-## 🤖 About GitHub Copilot and Coding Agent
+## 🤖 Sobre GitHub Copilot y Coding Agent
 
-This repository was created with the assistance of GitHub Copilot and its Coding agent. GitHub Copilot served as an AI pair programmer to:
+Este repositorio fue creado con la ayuda de GitHub Copilot y su Coding agent. GitHub Copilot sirvió como un programador par de IA para:
 
-- Generate initial project structure and boilerplate code
-- Suggest implementation details for controllers, services, and models
-- Help design the API routes and data schemas
-- Assist with configuration of Docker, ESLint, and other tooling
+- Generar la estructura inicial del proyecto y el código base
+- Sugerir detalles de implementación para controladores, servicios y modelos
+- Ayudar a diseñar las rutas de la API y los esquemas de datos
+- Asistir con la configuración de Docker, ESLint y otras herramientas
 
-The Coding agent facilitated structured AI assistance directly within pull requests, helping to implement features, fix bugs, and improve code quality throughout the development process.
+El Coding agent facilitó asistencia estructurada de IA directamente dentro de los pull requests, ayudando a implementar funcionalidades, corregir errores y mejorar la calidad del código durante todo el proceso de desarrollo.
 
-## 👥 Contribution
+## 👥 Contribución
 
-Contributions to this project are welcome! To contribute:
+¡Las contribuciones a este proyecto son bienvenidas! Para contribuir:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Haz un fork del repositorio
+2. Crea una rama para tu funcionalidad (`git checkout -b feature/funcionalidad-increible`)
+3. Haz commit de tus cambios (`git commit -m 'Añadir funcionalidad increíble'`)
+4. Haz push a la rama (`git push origin feature/funcionalidad-increible`)
+5. Abre un Pull Request
 
-Please ensure your code follows the project's coding standards by running linters and formatters before submitting.
+Por favor, asegúrate de que tu código sigue los estándares de codificación del proyecto ejecutando los linters y formateadores antes de enviar.
 
-## ⚡ Continuous Integration
+## ⚡ Integración Continua
 
-This project uses GitHub Actions to implement a Continuous Integration (CI) workflow. The workflow runs automatically on each push to the main branch and on pull requests to main.
+Este proyecto utiliza GitHub Actions para implementar un flujo de Integración Continua (CI). El flujo se ejecuta automáticamente en cada push a la rama main y en los pull requests hacia main.
 
-The CI workflow performs the following operations:
-- Repository checkout
-- Node.js setup
-- Dependency installation
-- Linter execution
-- Project build
-- Tests execution (when implemented)
+El flujo de CI realiza las siguientes operaciones:
+- Checkout del repositorio
+- Configuración de Node.js
+- Instalación de dependencias
+- Ejecución del linter
+- Compilación del proyecto
+- Ejecución de pruebas (cuando estén implementadas)
 
-You can check the status of CI executions in the "Actions" tab of the repository.
+Puedes ver el estado de las ejecuciones de CI en la pestaña "Actions" del repositorio.
 
-## 🐳 Development with Dev Containers
+## 🐳 Desarrollo con Dev Containers
 
-This project is configured to use Dev Containers with Visual Studio Code, allowing development inside a containerized environment with all necessary tools pre-installed.
+Este proyecto está configurado para usar Dev Containers con Visual Studio Code, lo que permite desarrollar dentro de un entorno containerizado con todas las herramientas necesarias preinstaladas.
 
-### Prerequisites for Dev Containers
+### Requisitos para Dev Containers
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Remote - Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Extensión Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-### Starting the Dev Container
+### Inicio del Dev Container
 
-1. Open the project in Visual Studio Code
-2. When the notification "Folder contains a Dev Container configuration file" appears, click "Reopen in Container"
-   - Or use the command `Remote-Containers: Reopen in Container` from the command palette (F1)
+1. Abrir el proyecto en Visual Studio Code
+2. Cuando aparezca la notificación "Folder contains a Dev Container configuration file", hacer clic en "Reopen in Container"
+   - O usar el comando `Remote-Containers: Reopen in Container` desde la paleta de comandos (F1)
 
-### Included Features
+### Características incluidas
 
-- 🖥️ Preconfigured Node.js/TypeScript environment (Node.js 22 with Debian Bookworm)
-- 🗃️ MongoDB database service (version 8.0)
-- 🧩 Recommended development extensions pre-installed:
-  - TypeScript and JavaScript (linting, formatting)
-  - MongoDB support
-  - Docker tools
-  - Git enhancements (GitLens)
-- ⚙️ Automatic formatting and linting configuration
+- 🖥️ Entorno Node.js/TypeScript preconfigurado (Node.js 22 con Debian Bookworm)
+- 🗃️ MongoDB como servicio de base de datos (versión 8.0)
+- 🧩 Extensiones recomendadas para desarrollo ya instaladas:
+  - TypeScript y JavaScript (linting, formateo)
+  - Soporte para MongoDB
+  - Herramientas Docker
+  - Mejoras Git (GitLens)
+- ⚙️ Configuración automática de formateo y linting
 
-## 📝 License
+## 📝 Licencia
 
-This project is licensed under the ISC License - see the `package.json` file for details.
+Este proyecto está licenciado bajo la Licencia ISC - consulta el archivo `package.json` para más detalles.
