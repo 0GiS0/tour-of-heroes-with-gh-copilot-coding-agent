@@ -32,4 +32,5 @@ jobs:
 
     - name: Test
       run: npm test
+      # TODO: Remove `continue-on-error: true` once tests are implemented to ensure CI failures are not masked.
       continue-on-error: true # Continue workflow execution even if tests fail (since tests are not implemented yet)
