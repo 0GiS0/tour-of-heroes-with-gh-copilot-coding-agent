@@ -9,16 +9,16 @@ export class HeroController {
   }
 
   // This is just a placeholder - actual implementation will be done in another issue
-  async getHeroes(_req: Request, res: Response): Promise<void> {
+  async getHeroes(_req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const heroes = await this.heroService.getHeroes();
       res.status(200).json(heroes);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      next(error);
     }
   }
 
-  async getHeroById(req: Request, res: Response): Promise<void> {
+  async getHeroById(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const id = Number(req.params.id);
       const hero = await this.heroService.getHeroById(id);
