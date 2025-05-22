@@ -74,7 +74,6 @@ El flujo de CI realiza las siguientes operaciones:
 - Ejecución de pruebas (cuando estén implementadas)
 
 Puedes ver el estado de las ejecuciones de CI en la pestaña "Actions" del repositorio.
-=======
 ## Desarrollo con Dev Containers
 
 Este proyecto está configurado para usar Dev Containers con Visual Studio Code, lo que permite desarrollar dentro de un entorno containerizado con todas las herramientas necesarias preinstaladas.
