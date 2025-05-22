@@ -2,6 +2,7 @@
   "name": "tour-of-heroes-with-gh-copilot-coding-agent",
   "version": "1.0.0",
   "description": "Este repositorio se ha confeccionado usando Github Copilot con su agente Coding",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
