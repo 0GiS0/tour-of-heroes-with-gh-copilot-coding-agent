@@ -17,6 +17,10 @@ Una API REST para gestionar superhéroes, implementada con Node.js y TypeScript.
 │   ├── services/    # Lógica de negocio
 │   ├── utils/       # Funciones de utilidad
 │   └── index.ts     # Punto de entrada de la aplicación
+├── Dockerfile       # Configuración Docker para producción
+├── Dockerfile.dev   # Configuración Docker para desarrollo
+├── docker-compose.yml # Configuración de Docker Compose
+├── .dockerignore    # Archivos ignorados en el contexto de Docker
 ├── eslint.config.js # Configuración de ESLint
 ├── package.json     # Dependencias del proyecto
 └── tsconfig.json    # Configuración de TypeScript
@@ -86,7 +90,7 @@ npm run format
 - **TypeScript**: Lenguaje de programación fuertemente tipado que se basa en JavaScript
 - **Express**: Framework web rápido y minimalista para Node.js
 - **MongoDB**: Base de datos de documentos NoSQL
-- **Docker**: Plataforma de contenedores
+- **Docker**: Plataforma de contenedores con configuraciones para desarrollo y producción
 - **ESLint & Prettier**: Herramientas de calidad y formateo de código
 - **GitHub Actions**: Flujos de trabajo de Integración Continua
 
@@ -126,6 +130,56 @@ El flujo de CI realiza las siguientes operaciones:
 - Ejecución de pruebas (cuando estén implementadas)
 
 Puedes ver el estado de las ejecuciones de CI en la pestaña "Actions" del repositorio.
+
+## 🐳 Desarrollo con Docker
+
+### Usando Dockerfiles
+
+Este proyecto incluye configuración Docker para entornos de desarrollo y producción.
+
+#### Dockerfile.dev (Entorno de Desarrollo)
+
+Este Dockerfile está configurado para desarrollo con recarga automática del código.
+
+```bash
+# Construir la imagen de desarrollo
+docker build -t heroes-api-dev -f Dockerfile.dev .
+
+# Ejecutar el contenedor
+docker run -p 3000:3000 -v $(pwd):/app -v /app/node_modules --name heroes-dev heroes-api-dev
+```
+
+#### Dockerfile (Entorno de Producción)
+
+Este Dockerfile está optimizado para producción con un proceso de construcción en múltiples etapas.
+
+```bash
+# Construir la imagen de producción
+docker build -t heroes-api .
+
+# Ejecutar el contenedor
+docker run -p 3000:3000 --name heroes-prod heroes-api
+```
+
+### Usando Docker Compose
+
+Para simplificar el proceso de desarrollo y producción, se incluye un archivo `docker-compose.yml`.
+
+```bash
+# Iniciar el entorno de desarrollo
+docker-compose up app-dev
+
+# Iniciar el entorno de producción
+docker-compose --profile prod up app-prod
+
+# Detener los contenedores
+docker-compose down
+```
+
+El archivo docker-compose.yml define tres servicios:
+- `app-dev`: Aplicación en modo desarrollo con recarga automática
+- `app-prod`: Aplicación optimizada para producción
+- `mongodb`: Base de datos MongoDB para persistencia
 
 ## 🐳 Desarrollo con Dev Containers
 
