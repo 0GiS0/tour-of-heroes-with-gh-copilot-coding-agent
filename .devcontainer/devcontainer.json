@@ -15,7 +15,12 @@
   // ⚙️ Características adicionales para el contenedor
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": true,
+      "installDockerBuildx": true,
+      "version": "latest"
+    }
   },
 
   // 🧩 Extensiones recomendadas para el desarrollo
@@ -32,6 +37,9 @@
         
         // Docker
         "ms-azuretools.vscode-docker",     // Manejo de contenedores
+        
+        // Kubernetes
+        "ms-kubernetes-tools.vscode-kubernetes-tools", // Herramientas para Kubernetes
         
         // Git
         "eamodio.gitlens"                  // Mejoras Git
@@ -56,7 +64,7 @@
   },
   
   // 🔄 Comandos para ejecutar después de crear el contenedor
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install && echo '🚀 Para configurar el cluster Kubernetes, ejecute: ~/.devcontainer/scripts/setup-kind.sh'",
   
   // 🚪 Configuración de puertos a exponer
   "forwardPorts": [3000, 27017],
