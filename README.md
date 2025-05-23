@@ -205,8 +205,73 @@ Este proyecto está configurado para usar Dev Containers con Visual Studio Code,
   - TypeScript y JavaScript (linting, formateo)
   - Soporte para MongoDB
   - Herramientas Docker
+  - Herramientas Kubernetes
   - Mejoras Git (GitLens)
 - ⚙️ Configuración automática de formateo y linting
+- 🔧 Soporte para desarrollo con Kubernetes usando kind
+
+## ⎈ Desarrollo con Kubernetes
+
+Este proyecto incluye soporte para Kubernetes, lo que permite probar y desarrollar la aplicación en un entorno más cercano al de producción.
+
+### 🚀 Requisitos
+
+- Dev Container configurado y funcionando
+- Docker (incluido en el Dev Container)
+- kubectl y kind (preinstalados en el Dev Container)
+
+### 📦 Estructura de manifiestos
+
+La carpeta `k8s/` contiene todos los manifiestos necesarios para desplegar la aplicación:
+
+```
+k8s/
+├── deployment.yaml           # Despliegue principal de la API
+├── service.yaml              # Servicio para exponer la API
+├── mongodb-deployment.yaml   # Despliegue de MongoDB
+├── mongodb-service.yaml      # Servicio para MongoDB
+├── configmap.yaml            # Configuración de la aplicación
+├── secret.yaml               # Secretos (credenciales)
+├── ingress.yaml              # Ingress para acceso externo
+```
+
+### 🛠️ Configurando el cluster de desarrollo
+
+1. Una vez dentro del Dev Container, ejecutar el script de inicialización:
+   ```bash
+   ~/.devcontainer/scripts/setup-kind.sh
+   ```
+   Este script:
+   - Crea un cluster kind llamado "heroes-cluster"
+   - Configura NGINX Ingress Controller
+   - Actualiza /etc/hosts para resolver "heroes-api.local"
+   - Aplica los manifiestos de Kubernetes
+
+2. Para construir y cargar la imagen en el cluster:
+   ```bash
+   ~/.devcontainer/scripts/build-and-load.sh
+   ```
+
+3. Acceder a la API a través de: http://heroes-api.local
+
+### 🔄 Comandos útiles para trabajar con Kubernetes
+
+```bash
+# Ver todos los recursos desplegados
+kubectl get all
+
+# Ver logs de la aplicación
+kubectl logs -l app=heroes-api
+
+# Ejecutar un shell en el contenedor de la aplicación
+kubectl exec -it deployment/heroes-api -- /bin/sh
+
+# Aplicar cambios en los manifiestos
+kubectl apply -f k8s/
+
+# Eliminar todos los recursos
+kubectl delete -f k8s/
+```
 
 ## 📝 Licencia
 
