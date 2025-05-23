@@ -12,7 +12,7 @@ RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser \
 COPY package*.json ./
 
 # 📦 Instalar todas las dependencias (incluidas las de desarrollo)
-RUN npm install
+RUN npm ci
 
 # 👤 Cambiar al usuario no root
 USER appuser

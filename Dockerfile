@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 📦 Instalar dependencias incluyendo las de desarrollo (necesarias para build)
-RUN npm install
+RUN npm ci
 
 # 📁 Copiar el código fuente
 COPY . .
@@ -26,7 +26,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 📦 Instalar solo dependencias de producción
-RUN npm install --omit=dev
+RUN npm ci --omit=dev
 
 # 👤 Crear un usuario no root para mayor seguridad
 RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser \
