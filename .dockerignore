@@ -13,6 +13,7 @@ dist
 Dockerfile
 Dockerfile.dev
 docker-compose.yml
+compose.yaml
 .dockerignore
 
 # Environment variables
