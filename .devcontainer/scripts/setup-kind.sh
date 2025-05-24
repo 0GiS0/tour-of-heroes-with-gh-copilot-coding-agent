@@ -5,14 +5,17 @@ set -e
 
 CLUSTER_NAME="heroes-cluster"
 
-# Verificar si el cluster ya existe
+# Verificar si el cluster ya existe y eliminarlo si es necesario
 if kind get clusters | grep -q "^${CLUSTER_NAME}$"; then
-    echo "✅ El cluster '${CLUSTER_NAME}' ya existe."
-else
-    echo "🚀 Creando cluster Kind '${CLUSTER_NAME}'..."
-    
-    # Configuración del cluster con port mappings
-    cat <<EOF | kind create cluster --name=${CLUSTER_NAME} --config=-
+    echo "🗑️  El cluster '${CLUSTER_NAME}' ya existe. Eliminándolo..."
+    kind delete cluster --name=${CLUSTER_NAME}
+    echo "✅ Cluster '${CLUSTER_NAME}' eliminado exitosamente."
+fi
+
+echo "🚀 Creando cluster Kind '${CLUSTER_NAME}'..."
+
+# Configuración del cluster con port mappings
+cat <<EOF | kind create cluster --name=${CLUSTER_NAME} --config=-
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -25,9 +28,8 @@ nodes:
     hostPort: 443
     protocol: TCP
 EOF
-    
-    echo "✅ Cluster '${CLUSTER_NAME}' creado exitosamente."
-fi
+
+echo "✅ Cluster '${CLUSTER_NAME}' creado exitosamente."
 
 # Verificar conexión al cluster
 kubectl cluster-info --context kind-${CLUSTER_NAME}
