@@ -37,11 +37,11 @@ echo "📦 Instalando NGINX Ingress Controller..."
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
 # Esperar a que el Ingress Controller esté listo
-echo "⏳ Esperando a que el Ingress Controller esté listo..."
-kubectl wait --namespace ingress-nginx \
-  --for=condition=ready pod \
-  --selector=app.kubernetes.io/component=controller \
-  --timeout=90s
+# echo "⏳ Esperando a que el Ingress Controller esté listo..."
+# kubectl wait --namespace ingress-nginx \
+#   --for=condition=ready pod \
+#   --selector=app.kubernetes.io/component=controller \
+#   --timeout=90s
 
 echo "🔄 Configurando /etc/hosts para heroes-api.local..."
 if ! grep -q "heroes-api.local" /etc/hosts; then

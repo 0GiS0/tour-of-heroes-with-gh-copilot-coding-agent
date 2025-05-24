@@ -1,11 +1,9 @@
 {
   // 📝 Nombre y descripción del Dev Container
   "name": "Tour of Heroes API - Development Container",
-  "description": "Development environment for Tour of Heroes API with MongoDB support",
   
   // 🖥️ Imagen base para TypeScript/Node.js
   // Usamos una imagen oficial de Microsoft para TypeScript y Node.js
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
   
   // 🗃️ Configuración del Docker Compose para servicios adicionales
   "dockerComposeFile": "docker-compose.yml",
@@ -14,13 +12,17 @@
   
   // ⚙️ Características adicionales para el contenedor
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+   
+   
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "moby": true,
+      "azureDnsAutoDetection": true,
       "installDockerBuildx": true,
-      "version": "latest"
-    }
+      "installDockerComposeSwitch": true,
+      "version": "latest",
+      "dockerDashComposeVersion": "v2"
+    },
+   
   },
 
   // 🧩 Extensiones recomendadas para el desarrollo
