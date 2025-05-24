@@ -5,13 +5,12 @@ services:
   app:
     # Usamos el Dockerfile para construir el contenedor
     build: 
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
+      context: .
+      dockerfile: Dockerfile
     
     # 📁 Volúmenes para sincronizar el código y paquetes de node
     volumes:
-      - ..:/workspaces/${localWorkspaceFolderBasename}:cached
-      - node_modules:/workspaces/${localWorkspaceFolderBasename}/node_modules
+      - ../..:/workspaces:cached
     
     # 🛑 Evitar que el contenedor se cierre
     command: sleep infinity

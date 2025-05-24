@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heroes-api
+  labels:
+    app: heroes-api
+    component: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: heroes-api
+  template:
+    metadata:
+      labels:
+        app: heroes-api
+    spec:
+      containers:
+      - name: heroes-api
+        image: heroes-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+          name: http
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+        env:
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: heroes-config
+              key: NODE_ENV
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: heroes-config
+              key: PORT
+        - name: MONGODB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: heroes-config
+              key: MONGODB_URI
+        readinessProbe:
+          httpGet:
+            path: /api/heroes
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /api/heroes
+            port: http
+          initialDelaySeconds: 15
+          periodSeconds: 10
