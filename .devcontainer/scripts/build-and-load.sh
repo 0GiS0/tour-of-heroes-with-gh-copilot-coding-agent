@@ -14,7 +14,7 @@ fi
 
 echo "🏗️ Construyendo imagen Docker '${IMAGE_NAME}'..."
 cd /workspaces/$(basename $PWD)
-docker build -t ${IMAGE_NAME} -f Dockerfile .
+docker build -t ${IMAGE_NAME} .
 
 echo "📦 Cargando imagen en el cluster Kind..."
 kind load docker-image ${IMAGE_NAME} --name=${CLUSTER_NAME}

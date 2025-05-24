@@ -63,7 +63,7 @@
   },
 
   // 🔄 Comandos para ejecutar después de crear el contenedor
-  "postStartCommand": "npm install && bash .devcontainer/scripts/setup-kind.sh",
+  "postStartCommand": "npm install && bash .devcontainer/scripts/setup-kind.sh && bash .devcontainer/scripts/build-and-load.sh ",
 
   // 🚪 Configuración de puertos a exponer
   "forwardPorts": [3000, 27017],

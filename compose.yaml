@@ -5,7 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - ./:/app
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      - ./tsconfig.json:/app/tsconfig.json
       - node_modules:/app/node_modules
     ports:
       - "3000:3000"
