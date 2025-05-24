@@ -1,5 +1,11 @@
 # Variables for AKS deployment
 
+# Azure Provider
+variable "subscription_id" {
+  description = "The Azure subscription ID"
+  type        = string
+}
+
 # General
 variable "resource_group_name" {
   description = "The name of the resource group"
@@ -10,7 +16,7 @@ variable "resource_group_name" {
 variable "location" {
   description = "The Azure region where resources should be created"
   type        = string
-  default     = "westeurope"
+  default     = "spaincentral"
 }
 
 variable "tags" {

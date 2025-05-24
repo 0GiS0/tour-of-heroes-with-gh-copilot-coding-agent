@@ -1,9 +1,12 @@
 # Example terraform.tfvars file
 # Rename to terraform.tfvars and modify as needed
 
+# Azure Provider
+subscription_id     = "your-subscription-id"
+
 # General
 resource_group_name = "heroes-aks-rg"
-location            = "westeurope"
+location            = "spaincentral"
 tags = {
   Environment = "Development"
   Application = "Heroes-API"
