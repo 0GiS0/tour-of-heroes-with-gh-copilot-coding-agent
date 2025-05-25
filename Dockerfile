@@ -1,5 +1,5 @@
 # 🏗️ Etapa de construcción
-FROM node:22-bookworm-slim AS builder
+FROM node:24-bookworm-slim AS builder
 
 # 🔧 Establecer directorio de trabajo
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # 🚀 Etapa de producción
-FROM node:22-bookworm-slim AS production
+FROM node:24-bookworm-slim AS production
 
 # 🔧 Establecer directorio de trabajo
 WORKDIR /app
