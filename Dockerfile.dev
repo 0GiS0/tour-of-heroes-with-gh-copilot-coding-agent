@@ -14,6 +14,9 @@ COPY package*.json ./
 # 📦 Instalar todas las dependencias (incluidas las de desarrollo)
 RUN npm ci
 
+# 📂 Copiar el resto de los archivos de la aplicación al contenedor
+COPY . .
+
 # 👤 Cambiar la propiedad del directorio al usuario no root
 RUN chown -R appuser:appuser /app
 
