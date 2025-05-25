@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { HeroService } from '../services/hero.service';
+import { HeroService } from '../services/hero.service.js';
 
 export class HeroController {
   private heroService: HeroService;
