@@ -70,3 +70,15 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "service_cidr" {
+  description = "The CIDR to use for service IPs"
+  type        = string
+  default     = "172.16.0.0/16"
+}
+
+variable "dns_service_ip" {
+  description = "The IP address within the service CIDR that will be used by cluster service discovery (kube-dns)"
+  type        = string
+  default     = "172.16.0.10"
+}

@@ -12,13 +12,13 @@ run "resource_group_module" {
   command = plan
 
   module {
-    source = "../modules/resource_group"
+    source = "./modules/resource_group"
   }
 
   variables {
-    name     = var.resource_group_name
-    location = var.location
-    tags     = var.tags
+    resource_group_name = var.resource_group_name
+    location            = var.location
+    tags                 = var.tags
   }
 
   assert {
@@ -42,7 +42,7 @@ run "network_module" {
   command = plan
 
   module {
-    source = "../modules/network"
+    source = "./modules/network"
   }
 
   variables {

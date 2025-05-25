@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      configuration_aliases = [azurerm.this]
+    }
+  }
+}
+
 # Resource Group Module
 # This module creates an Azure Resource Group
 

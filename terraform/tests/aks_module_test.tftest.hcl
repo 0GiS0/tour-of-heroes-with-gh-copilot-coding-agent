@@ -20,7 +20,7 @@ run "aks_module" {
   command = plan
 
   module {
-    source = "../modules/aks"
+    source = "./modules/aks"
   }
 
   variables {

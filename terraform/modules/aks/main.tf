@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      configuration_aliases = [azurerm.this]
+    }
+  }
+}
+
 # AKS Module
 # This module creates an Azure Kubernetes Service cluster
 
@@ -27,12 +36,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
   network_profile {
     network_plugin    = "azure"
     load_balancer_sku = "standard"
-    network_policy    = "calico"
-  }
-
-  azure_active_directory_role_based_access_control {
-    managed                = true
-    azure_rbac_enabled     = true
+    network_policy    = "azure"
+    service_cidr      = var.service_cidr
+    dns_service_ip    = var.dns_service_ip
   }
 
   tags = var.tags

@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      configuration_aliases = [azurerm.this]
+    }
+  }
+}
+
 # Network Module
 # This module creates a virtual network and subnet for AKS
 
