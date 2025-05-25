@@ -88,6 +88,54 @@ O utilizando el output de Terraform:
 echo "$(terraform output -raw kube_config)" > ~/.kube/config
 ```
 
+## 🧪 Pruebas de Terraform
+
+Este proyecto incluye pruebas automatizadas para validar la configuración de Terraform antes del despliegue real. Las pruebas utilizan el framework de testing nativo de Terraform.
+
+### Propósito de las pruebas
+
+Las pruebas de infraestructura como código permiten:
+
+- Validar la correcta configuración de los recursos antes del despliegue
+- Detectar errores de configuración tempranamente
+- Prevenir despliegues incorrectos que podrían generar costos innecesarios
+- Asegurar que los cambios futuros mantengan la configuración esperada
+
+### Estructura de las pruebas
+
+El proyecto incluye los siguientes archivos de prueba en el directorio `tests/`:
+
+- **aks_test.tftest.hcl**: Prueba la configuración principal de recursos AKS
+- **modules_test.tftest.hcl**: Prueba los módulos individuales (resource_group, network)
+- **aks_module_test.tftest.hcl**: Prueba específicamente el módulo AKS
+
+### Ejecución de las pruebas
+
+Para ejecutar todas las pruebas:
+
+```bash
+cd terraform
+terraform test
+```
+
+Para ejecutar una prueba específica:
+
+```bash
+terraform test tests/aks_test.tftest.hcl
+```
+
+Para obtener información más detallada durante la ejecución:
+
+```bash
+terraform test -verbose
+```
+
+### Interpretación de resultados
+
+- Una ejecución exitosa indica que todas las aserciones pasaron correctamente
+- Un fallo muestra qué aserción no cumplió la condición esperada
+- Las pruebas utilizan principalmente el comando `plan` para validar la configuración sin realizar despliegues reales
+
 ## 🗑️ Eliminación de recursos
 
 Para eliminar todos los recursos creados:
