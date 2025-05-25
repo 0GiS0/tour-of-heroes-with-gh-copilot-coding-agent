@@ -1,15 +1,12 @@
 {
   // 📝 Nombre y descripción del Dev Container
   "name": "Tour of Heroes API - Development Container",
-
   // 🖥️ Imagen base para TypeScript/Node.js
   // Usamos una imagen oficial de Microsoft para TypeScript y Node.js
-
   // 🗃️ Configuración del Docker Compose para servicios adicionales
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-
   // ⚙️ Características adicionales para el contenedor
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
@@ -19,31 +16,33 @@
       "installDockerComposeSwitch": true,
       "version": "latest",
       "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "version": "latest",
+      "bicepVersion": "latest"
+    },
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "installSentinel": true,
+      "installTFsec": true,
+      "installTerraformDocs": true,
+      "version": "latest",
+      "tflint": "latest",
+      "terragrunt": "latest"
     }
   },
-
   // 🧩 Extensiones recomendadas para el desarrollo
   "customizations": {
     "vscode": {
       "extensions": [
-        // TypeScript y JavaScript
-        "ms-vscode.vscode-typescript-next", // TypeScript avanzado
-        "dbaeumer.vscode-eslint", // Linting
-        "esbenp.prettier-vscode", // Formato de código
-
-        // MongoDB
-        "mongodb.mongodb-vscode", // Soporte y explorador MongoDB
-
-        // Docker
-        "ms-azuretools.vscode-docker", // Manejo de contenedores
-
-        // Kubernetes
-        "ms-kubernetes-tools.vscode-kubernetes-tools", // Herramientas para Kubernetes
-
-        // Git
-        "eamodio.gitlens" // Mejoras Git
+        "ms-vscode.vscode-typescript-next",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "mongodb.mongodb-vscode",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "eamodio.gitlens",
+        "HashiCorp.terraform"
       ],
-
       // ⚙️ Configuraciones específicas para el workspace
       "settings": {
         "editor.formatOnSave": true,
@@ -51,7 +50,10 @@
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": true
         },
-        "eslint.validate": ["typescript", "javascript"],
+        "eslint.validate": [
+          "typescript",
+          "javascript"
+        ],
         "[typescript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
@@ -61,12 +63,13 @@
       }
     }
   },
-
   // 🔄 Comandos para ejecutar después de crear el contenedor
   "postStartCommand": "npm install && bash .devcontainer/scripts/setup-kind.sh && bash .devcontainer/scripts/build-and-load.sh ",
-
   // 🚪 Configuración de puertos a exponer
-  "forwardPorts": [3000, 27017],
+  "forwardPorts": [
+    3000,
+    27017
+  ],
   "portsAttributes": {
     "3000": {
       "label": "Application",
@@ -77,7 +80,6 @@
       "onAutoForward": "silent"
     }
   },
-
   // 👤 Usuario no-root para mayor seguridad
   "remoteUser": "node"
 }

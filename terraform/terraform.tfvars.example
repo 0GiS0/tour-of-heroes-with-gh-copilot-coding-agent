@@ -1,0 +1,31 @@
+# Example terraform.tfvars file
+# Rename to terraform.tfvars and modify as needed
+
+# Azure Provider
+subscription_id     = "your-subscription-id"
+
+# General
+resource_group_name = "heroes-aks-rg"
+location            = "spaincentral"
+tags = {
+  Environment = "Development"
+  Application = "Heroes-API"
+  ManagedBy   = "Terraform"
+}
+
+# Network
+vnet_name               = "heroes-aks-vnet"
+address_space           = ["10.0.0.0/16"]
+subnet_name             = "heroes-aks-subnet"
+subnet_address_prefixes = ["10.0.1.0/24"]
+
+# AKS
+cluster_name        = "heroes-aks-cluster"
+dns_prefix          = "heroes-aks"
+kubernetes_version  = null  # Use latest available
+node_size           = "Standard_B2s"  # Cost-effective VM size
+node_count          = 2
+enable_auto_scaling = true
+min_node_count      = 1
+max_node_count      = 3
+os_disk_size_gb     = 30
