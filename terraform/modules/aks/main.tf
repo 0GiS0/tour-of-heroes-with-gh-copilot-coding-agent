@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source                = "hashicorp/azurerm"
       configuration_aliases = [azurerm.this]
     }
   }
@@ -18,15 +18,14 @@ resource "azurerm_kubernetes_cluster" "aks" {
   kubernetes_version  = var.kubernetes_version
 
   default_node_pool {
-    name                = "default"
-    vm_size             = var.node_size
-    node_count          = var.node_count
-    enable_auto_scaling = var.enable_auto_scaling
-    min_count           = var.enable_auto_scaling ? var.min_node_count : null
-    max_count           = var.enable_auto_scaling ? var.max_node_count : null
-    vnet_subnet_id      = var.subnet_id
-    os_disk_size_gb     = var.os_disk_size_gb
-    tags                = var.tags
+    name            = "default"
+    vm_size         = var.node_size
+    node_count      = var.node_count
+    min_count       = var.enable_auto_scaling ? var.min_node_count : null
+    max_count       = var.enable_auto_scaling ? var.max_node_count : null
+    vnet_subnet_id  = var.subnet_id
+    os_disk_size_gb = var.os_disk_size_gb
+    tags            = var.tags
   }
 
   identity {

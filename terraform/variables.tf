@@ -108,3 +108,15 @@ variable "os_disk_size_gb" {
   type        = number
   default     = 30
 }
+
+variable "storage_account_name" {
+  description = "The name of the storage account"
+  type        = string
+  default     = "heroesaksstorage"
+}
+
+variable "GITHUB_TOKEN" {
+  description = "GitHub token for accessing private repositories"
+  type        = string
+  sensitive   = true
+}

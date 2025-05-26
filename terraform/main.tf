@@ -5,7 +5,7 @@
 module "resource_group" {
   source = "./modules/resource_group"
   providers = {
-    azurerm = azurerm.this
+    azurerm      = azurerm.this
     azurerm.this = azurerm.this
   }
 
@@ -18,17 +18,17 @@ module "resource_group" {
 module "network" {
   source = "./modules/network"
   providers = {
-    azurerm = azurerm.this
+    azurerm      = azurerm.this
     azurerm.this = azurerm.this
   }
 
-  vnet_name           = var.vnet_name
-  address_space       = var.address_space
-  location            = var.location
-  resource_group_name = module.resource_group.resource_group_name
-  subnet_name         = var.subnet_name
+  vnet_name               = var.vnet_name
+  address_space           = var.address_space
+  location                = var.location
+  resource_group_name     = module.resource_group.resource_group_name
+  subnet_name             = var.subnet_name
   subnet_address_prefixes = var.subnet_address_prefixes
-  tags                = var.tags
+  tags                    = var.tags
 
   depends_on = [module.resource_group]
 }
@@ -37,7 +37,7 @@ module "network" {
 module "aks" {
   source = "./modules/aks"
   providers = {
-    azurerm = azurerm.this
+    azurerm      = azurerm.this
     azurerm.this = azurerm.this
   }
 
@@ -56,4 +56,12 @@ module "aks" {
   tags                = var.tags
 
   depends_on = [module.network]
+}
+
+module "storage_account" {
+  # source = "github.com/0GiS0/terraform-modules//modules/azure/storage-account"
+  source              = "git::https://${var.GITHUB_TOKEN}@github.com/0GiS0/terraform-modules//modules/azure/storage-account"
+  name                = var.storage_account_name
+  resource_group_name = module.resource_group.resource_group_name
+  location            = var.location
 }
