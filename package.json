@@ -11,6 +11,7 @@
     "lint": "eslint './src/**/*.ts'",
     "lint:fix": "eslint './src/**/*.ts' --fix",
     "format": "prettier --write \"src/**/*.ts\"",
+    "seed": "node --loader ts-node/esm src/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
