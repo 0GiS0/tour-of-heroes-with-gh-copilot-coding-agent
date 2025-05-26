@@ -4,7 +4,7 @@ terraform {
       source                = "hashicorp/azurerm"
       configuration_aliases = [azurerm.this]
 
-      
+
     }
   }
 }
@@ -23,11 +23,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
     name            = "default"
     vm_size         = var.node_size
     node_count      = var.node_count
-    min_count       = var.enable_auto_scaling ? var.min_node_count : null
-    max_count       = var.enable_auto_scaling ? var.max_node_count : null
     vnet_subnet_id  = var.subnet_id
     os_disk_size_gb = var.os_disk_size_gb
     tags            = var.tags
+    # Solo incluir min_count y max_count si enable_auto_scaling es true
+    # No se puede usar dynamic para atributos simples, así que hay que documentar y controlar desde variables
+    # El usuario debe pasar min_count y max_count solo si enable_auto_scaling es true
   }
 
   identity {

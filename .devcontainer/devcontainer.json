@@ -40,7 +40,6 @@
         "mongodb.mongodb-vscode",
         "ms-azuretools.vscode-docker",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "eamodio.gitlens",
         "HashiCorp.terraform"
       ],
       // ⚙️ Configuraciones específicas para el workspace
@@ -50,10 +49,7 @@
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": true
         },
-        "eslint.validate": [
-          "typescript",
-          "javascript"
-        ],
+        "eslint.validate": ["typescript", "javascript"],
         "[typescript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
@@ -66,10 +62,7 @@
   // 🔄 Comandos para ejecutar después de crear el contenedor
   "postStartCommand": "npm install && bash .devcontainer/scripts/setup-kind.sh && bash .devcontainer/scripts/build-and-load.sh ",
   // 🚪 Configuración de puertos a exponer
-  "forwardPorts": [
-    3000,
-    27017
-  ],
+  "forwardPorts": [3000, 27017],
   "portsAttributes": {
     "3000": {
       "label": "Application",
