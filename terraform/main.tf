@@ -58,10 +58,11 @@ module "aks" {
   depends_on = [module.network]
 }
 
-module "storage_account" {
-  # source = "github.com/0GiS0/terraform-modules//modules/azure/storage-account"
-  source              = "git::https://${var.GITHUB_TOKEN}@github.com/0GiS0/terraform-modules//modules/azure/storage-account"
-  name                = var.storage_account_name
-  resource_group_name = module.resource_group.resource_group_name
-  location            = var.location
-}
+# module "storage_account" {
+#   # source = "github.com/0GiS0/terraform-modules//modules/azure/storage-account"
+#   # source              = "git::https://${var.GITHUB_TOKEN}@github.com/0GiS0/terraform-modules//modules/azure/storage-account"
+#   source              = "git::https://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@github.com/0GiS0/terraform-modules//modules/azure/storage-account"
+#   name                = var.storage_account_name
+#   resource_group_name = module.resource_group.resource_group_name
+#   location            = var.location
+# }

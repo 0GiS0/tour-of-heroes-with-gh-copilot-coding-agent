@@ -115,8 +115,8 @@ variable "storage_account_name" {
   default     = "heroesaksstorage"
 }
 
-variable "GITHUB_TOKEN" {
-  description = "GitHub token for accessing private repositories"
-  type        = string
-  sensitive   = true
-}
+# variable "GITHUB_TOKEN" {
+#   description = "GitHub token for accessing private repositories"
+#   type        = string
+#   sensitive   = true
+# }

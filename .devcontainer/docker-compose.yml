@@ -4,27 +4,27 @@ services:
   # 🖥️ Servicio principal de la aplicación
   app:
     # Usamos el Dockerfile para construir el contenedor
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
-    
+
     # 📁 Volúmenes para sincronizar el código y paquetes de node
     volumes:
       - ../..:/workspaces:cached
-    
+
     # 🛑 Evitar que el contenedor se cierre
     command: sleep infinity
-    
+
     # 🔄 Configurar variables de entorno
     environment:
       - NODE_ENV=development
       - PORT=3000
       - MONGODB_URI=mongodb://mongodb:27017/heroes
-    
+
     # 🌐 Configuración de red para comunicarse con MongoDB
     networks:
       - heroes-network
-    
+
     # ⚙️ Dependencias: asegurarse de que MongoDB esté disponible antes de iniciar la app
     depends_on:
       - mongodb
@@ -33,19 +33,41 @@ services:
   mongodb:
     # Imagen oficial de MongoDB
     image: mongo:8.0
-    
+
     # 📁 Volumen para persistencia de datos
     volumes:
       - mongodb-data:/data/db
-    
+
     # 🌐 Exponer puerto estándar de MongoDB
     expose:
       - 27017
-    
+
     # 🔄 Configuración básica de MongoDB
     environment:
       - MONGO_INITDB_DATABASE=heroes
-    
+
+    # 🌐 Red compartida con la aplicación
+    networks:
+      - heroes-network
+
+  # Servicio SQL Server para evaluar también esta base de datos
+  sqlserver:
+    # Imagen oficial de SQL Server
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+    # 📁 Volumen para persistencia de datos
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+    # 🌐 Exponer puerto estándar de SQL Server
+    ports:
+      - '1433:1433'
+
+    # 🔄 Configuración básica de SQL Server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+
     # 🌐 Red compartida con la aplicación
     networks:
       - heroes-network
@@ -54,6 +76,7 @@ services:
 volumes:
   node_modules:
   mongodb-data:
+  sqlserver-data:
 
 # 🌐 Definición de redes
 networks:
