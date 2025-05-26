@@ -2,7 +2,9 @@ import mongoose, { Schema, Document } from 'mongoose';
 import { Hero } from './hero.model.js';
 
 // Interface for Hero document
-export interface HeroDocument extends Hero, Document {}
+export interface HeroDocument extends Omit<Hero, 'id'>, Document {
+  id: number;
+}
 
 // Schema definition for Hero
 const heroSchema = new Schema<HeroDocument>({
@@ -10,7 +12,7 @@ const heroSchema = new Schema<HeroDocument>({
   name: { type: String, required: true },
   alterEgo: { type: String },
   powers: { type: [String], required: true },
-  team: { type: String }
+  team: { type: String },
 });
 
 // Create and export the Hero model
