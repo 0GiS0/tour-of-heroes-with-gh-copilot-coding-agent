@@ -2,6 +2,8 @@
 applyTo: '**'
 ---
 
+# Consideraciones generales para nuevos archivos
+
 ## Preguntas relacionadas con Terraform
 
 Si te piden crear un módulo de Terraform antes comprueba si ya existe uno en https://github.com/0GiS0/terraform-modules.
@@ -11,6 +13,7 @@ Después ejecuta `tfsec` para verificar la sintaxis y la estructura de los archi
 
 ## Si te piden crear un Dockerfile
 
+Sigue las buenas prácticas de [Dockerfile Best Practices](.github/instructions/docker.instructions.md).
 Ejecuta siempre `docker build .` y comprueba que no hay errores.
 
 ## Si te piden crear un archivo de GitHub Actions
