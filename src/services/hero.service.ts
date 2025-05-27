@@ -124,13 +124,8 @@ export class HeroService {
         };
       }
 
-      // Generate a new ID (get the max ID and add 1)
-      const maxIdHero = await HeroModel.findOne().sort({ id: -1 });
-      const newId = maxIdHero ? maxIdHero.id + 1 : 1;
-
       // Create the new hero
       const newHero = new HeroModel({
-        id: newId,
         name: hero.name,
         alterEgo: hero.alterEgo,
         powers: hero.powers,
