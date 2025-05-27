@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { HeroService, HeroFilterOptions } from '../services/hero.service.js';
+import { HeroService, HeroFilterOptions, CreateHeroResult } from '../services/hero.service.js';
+import { Hero } from '../models/hero.model.js';
 
 export class HeroController {
   private heroService: HeroService;
@@ -76,6 +77,65 @@ export class HeroController {
 
       res.status(200).json({
         data: hero,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  /**
+   * Create a new hero
+   * @route POST /api/heroes
+   * @body {Object} hero - Hero data
+   * @returns {Object} Created hero or error message
+   */
+  async createHero(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const heroData = req.body as Omit<Hero, 'id'>;
+
+      // Validate required fields
+      if (!heroData.name) {
+        res.status(400).json({ error: 'Hero name is required' });
+        return;
+      }
+
+      if (!heroData.powers || !Array.isArray(heroData.powers) || heroData.powers.length === 0) {
+        res.status(400).json({ error: 'At least one power is required' });
+        return;
+      }
+
+      // Validate data types
+      if (typeof heroData.name !== 'string') {
+        res.status(400).json({ error: 'Hero name must be a string' });
+        return;
+      }
+
+      if (heroData.alterEgo && typeof heroData.alterEgo !== 'string') {
+        res.status(400).json({ error: 'Alter ego must be a string' });
+        return;
+      }
+
+      if (heroData.team && typeof heroData.team !== 'string') {
+        res.status(400).json({ error: 'Team must be a string' });
+        return;
+      }
+
+      if (!heroData.powers.every((power) => typeof power === 'string')) {
+        res.status(400).json({ error: 'All powers must be strings' });
+        return;
+      }
+
+      // Create the hero
+      const result: CreateHeroResult = await this.heroService.createHero(heroData);
+
+      if (!result.success) {
+        res.status(409).json({ error: result.error });
+        return;
+      }
+
+      res.status(201).json({
+        data: result.hero,
+        message: 'Hero created successfully',
       });
     } catch (error) {
       next(error);

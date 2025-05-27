@@ -1,0 +1,74 @@
+### Variables
+@baseUrl = http://localhost:3000/api
+@contentType = application/json
+
+### Get all heroes
+GET {{baseUrl}}/heroes HTTP/1.1
+
+### Get heroes with pagination
+GET {{baseUrl}}/heroes?page=1&limit=5 HTTP/1.1
+
+### Get heroes filtered by name
+GET {{baseUrl}}/heroes?name=Spider-Man HTTP/1.1
+
+### Get heroes filtered by power
+GET {{baseUrl}}/heroes?powers=strength HTTP/1.1
+
+### Get heroes filtered by team
+GET {{baseUrl}}/heroes?team=avengers HTTP/1.1
+
+### Get hero by ID
+GET {{baseUrl}}/heroes/1 HTTP/1.1
+
+### Create a new hero
+POST {{baseUrl}}/heroes HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "name": "Spider-Man",
+  "alterEgo": "Peter Parker",
+  "powers": ["Wall-Crawling", "Spider-Sense", "Super Strength"],
+  "team": "Avengers"
+}
+
+### Create another hero (will fail if Spider-Man already exists)
+POST {{baseUrl}}/heroes HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "name": "Black Widow",
+  "alterEgo": "Natasha Romanoff",
+  "powers": ["Espionage", "Martial Arts", "Tactical Analysis"],
+  "team": "Avengers"
+}
+
+### Create hero with missing name (will fail)
+POST {{baseUrl}}/heroes HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "alterEgo": "Bruce Wayne",
+  "powers": ["Intelligence", "Martial Arts", "Wealth"],
+  "team": "Justice League"
+}
+
+### Create hero with missing powers (will fail)
+POST {{baseUrl}}/heroes HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "name": "Batman",
+  "alterEgo": "Bruce Wayne",
+  "team": "Justice League"
+}
+
+### Create hero with duplicate powers (will fail if Spider-Man exists)
+POST {{baseUrl}}/heroes HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "name": "Peter Parker",
+  "alterEgo": "Spider-Man",
+  "powers": ["Wall-Crawling", "Spider-Sense", "Super Strength"],
+  "team": "Avengers"
+}
