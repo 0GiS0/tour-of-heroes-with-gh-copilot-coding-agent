@@ -19,3 +19,7 @@ Ejecuta siempre `docker build .` y comprueba que no hay errores.
 ## Si te piden crear un archivo de GitHub Actions
 
 Verifica que las acciones de GitHub Actions son las últimas versiones y que están bien estructuradas.
+
+## Si te piden crear un archivo de tipo TypeScript
+
+Sigue las buenas prácticas de #.github/instructions/typescript.instructions.md.
