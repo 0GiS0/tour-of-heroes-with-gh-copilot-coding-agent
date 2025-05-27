@@ -40,7 +40,8 @@
         "mongodb.mongodb-vscode",
         "ms-azuretools.vscode-docker",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "HashiCorp.terraform"
+        "HashiCorp.terraform",
+        "humao.rest-client"
       ],
       // ⚙️ Configuraciones específicas para el workspace
       "settings": {
