@@ -129,7 +129,7 @@ export class HeroController {
       const result: CreateHeroResult = await this.heroService.createHero(heroData);
 
       if (!result.success) {
-        res.status(400).json({ error: result.error });
+        res.status(409).json({ error: result.error });
         return;
       }
 
