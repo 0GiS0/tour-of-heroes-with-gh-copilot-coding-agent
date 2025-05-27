@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Blue Beetle",
+    "alterEgo": "Jaime Reyes",
+    "powers": [
+      "Alien Technology",
+      "Durability",
+      "Flight",
+      "Super Strength",
+      "Instant Weaponry",
+      "Combat Skill"
+    ],
+    "team": "Teen Titans",
+    "description": "The inheritor of a proud legacy of crimefighting, Jaime Reyes is the third individual to bear the name Blue Beetle. The ancient Scarab bonded with him, giving him incredible alien armor which he uses to defend his hometown from metahuman criminals.",
+    "image": "https://www.dc.com/sites/default/files/styles/comics320x485/public/blue-beetle_192_0.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Booster Gold",
+    "alterEgo": "Michael Jon Carter",
+    "powers": [
+      "Advanced Technology",
+      "Super Strength",
+      "Flight",
+      "Durability",
+      "Energy Blasts",
+      "Force Fields",
+      "Knowledge of the Future",
+      "Thermal Vision",
+      "X-Ray Vision"
+    ],
+    "team": "Justice League",
+    "description": "A scoundrel from the future intent on making a name for himself in the past, Booster Gold has nevertheless exhibited his share of heroism. Though eager to take credit for good deeds, Booster is a good guy at heart and will drop everything if he genuinely sees someone in need.",
+    "image": "https://www.dc.com/sites/default/files/styles/comics320x485/public/booster-gold_192_0.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Rip Hunter",
+    "alterEgo": "Unknown",
+    "powers": [
+      "Time Travel",
+      "Genius-Level Intellect",
+      "Combat Skill"
+    ],
+    "team": "Time Masters",
+    "description": "When time itself is in danger, it takes a master to save it. Enter Rip Hunter. He's part of the legion of Time Masters that patrol and protect the timestream from those who would warp or change history to their benefit, while also guarding the secrets of the Multiverse.",
+    "image": "https://www.dc.com/sites/default/files/styles/comics320x485/public/rip-hunter_192_0.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Atom Smasher",
+    "alterEgo": "Albert Rothstein",
+    "powers": [
+      "Mass Increase and Manipulation",
+      "Super Strength",
+      "Durability",
+      "Enhanced Stamina",
+      "Enhanced Speed"
+    ],
+    "team": "Justice Society of America",
+    "description": "As one of the newest recruits of The Justice Society, Al Rothstein can transform his molecular structure to grow in size to towering heights to become the superhero Atom Smasher. What he lacks in experience, Atom Smasher makes up for with brute force and youthful optimism.",
+    "image": "https://www.dc.com/sites/default/files/styles/comics320x485/public/atom-smasher_192_0.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Doctor Fate",
+    "alterEgo": "Kent Nelson",
+    "powers": [
+      "Magic",
+      "Supernatural Knowledge",
+      "Immortality",
+      "Invulnerability",
+      "Intelligence"
+    ],
+    "team": "Justice Society of America",
+    "description": "Upon wearing the ancient alien golden Helmet of Fate, Kent Nelson transforms from kindly academic into the sorcerer Doctor Fate. One of the founding members of The Justice Society, Doctor Fate is able to use his powers to wield magic, conjure illusions and see the future.",
+    "image": "https://www.dc.com/sites/default/files/styles/comics320x485/public/doctor-fate_192_0.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Cyclone",
+    "alterEgo": "Maxine Hunkel",
+    "powers": [
+      "Wind and Air Manipulation",
+      "Flight"
+    ],
+    "team": "Justice Society of America",
+    "description": "After being subjected to nanotechnology experimentation by evil scientists, at just nineteen years old, Maxine Hunkel is a force of nature—literally—with the ability to control the wind with her mind. As the superhero Cyclone, she brings a social justice attitude and a unique power set to The Justice Society.",
+    "image": "https://www.dc.com/sites/default/files/styles/comics320x485/public/cyclone_192_0.jpg"
+  }
+]
