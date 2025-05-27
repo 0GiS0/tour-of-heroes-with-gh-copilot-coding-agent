@@ -8,3 +8,4 @@ Puedes revisar el contenido de este @workspace y ver si en el directorio .github
 - Los archivos de GitHub Actions cumplen con las mejores prácticas y están bien estructurados.
 - Se están utilizando las últimas versiones de las acciones de GitHub.
 - Se están utilizando las acciones de GitHub que existen en el Marketplace.
+- Marca con un 👍🏻 o 👎🏻 lo que encuentres.
