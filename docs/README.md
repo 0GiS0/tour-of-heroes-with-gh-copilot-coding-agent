@@ -19,6 +19,7 @@ Bienvenido a la documentación completa del proyecto Tour of Heroes API. Este di
 - [Terraform para AKS](../terraform/README.md)
 
 ### Referencia
+- [API Reference](./api-reference.md)
 - [Tecnologías Utilizadas](./technologies.md)
 - [GitHub Copilot y Coding Agent](./github-copilot.md)
 

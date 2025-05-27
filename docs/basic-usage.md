@@ -68,26 +68,113 @@ npm run format
 
 La API proporciona los siguientes endpoints principales:
 
-- `GET /heroes`: Obtiene la lista de todos los héroes
-- `GET /heroes/:id`: Obtiene un héroe por su ID
-- `POST /heroes`: Crea un nuevo héroe
-- `PUT /heroes/:id`: Actualiza un héroe existente
-- `DELETE /heroes/:id`: Elimina un héroe por su ID
+### Héroes
 
-## Ejemplo de Uso
+#### Obtener lista de héroes
 
-Para crear un nuevo héroe, puedes usar:
+- **Endpoint**: `GET /api/heroes`
+- **Descripción**: Obtiene la lista de héroes con soporte para filtrado y paginación
+- **Parámetros de consulta**:
+  - `name` (opcional): Filtrar héroes por nombre
+  - `powers` (opcional): Filtrar héroes por poderes
+  - `team` (opcional): Filtrar héroes por equipo
+  - `page` (opcional): Número de página para paginación (por defecto: 1)
+  - `limit` (opcional): Número de héroes por página (por defecto: 10)
+- **Respuesta**:
+  ```json
+  {
+    "data": [
+      {
+        "id": 1,
+        "name": "Superman",
+        "alterEgo": "Clark Kent",
+        "powers": ["Super Strength", "Flight", "Invulnerability"],
+        "team": "Justice League"
+      },
+      // ... más héroes
+    ],
+    "metadata": {
+      "totalHeroes": 100,
+      "page": 1,
+      "limit": 10,
+      "totalPages": 10
+    }
+  }
+  ```
+
+#### Obtener un héroe por ID
+
+- **Endpoint**: `GET /api/heroes/:id`
+- **Descripción**: Obtiene la información detallada de un héroe específico
+- **Parámetros de ruta**:
+  - `id`: ID numérico del héroe
+- **Respuesta exitosa** (código 200):
+  ```json
+  {
+    "data": {
+      "id": 1,
+      "name": "Superman",
+      "alterEgo": "Clark Kent",
+      "powers": ["Super Strength", "Flight", "Invulnerability"],
+      "team": "Justice League"
+    }
+  }
+  ```
+- **Respuesta de error** (código 404):
+  ```json
+  {
+    "error": "Hero not found"
+  }
+  ```
+
+- `POST /api/heroes`: Crea un nuevo héroe
+- `PUT /api/heroes/:id`: Actualiza un héroe existente
+- `DELETE /api/heroes/:id`: Elimina un héroe por su ID
+
+## Ejemplos de Uso
+
+### Obtener todos los héroes
 
 ```bash
-curl -X POST http://localhost:3000/heroes \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Batman", "alterEgo": "Bruce Wayne", "power": 8}'
+curl http://localhost:3000/api/heroes
 ```
 
-Para obtener todos los héroes:
+### Filtrar héroes por nombre
 
 ```bash
-curl http://localhost:3000/heroes
+curl http://localhost:3000/api/heroes?name=man
+```
+
+### Filtrar héroes por poder
+
+```bash
+curl http://localhost:3000/api/heroes?powers=flight
+```
+
+### Filtrar héroes por equipo
+
+```bash
+curl http://localhost:3000/api/heroes?team=Justice
+```
+
+### Paginación de resultados
+
+```bash
+# Obtener segunda página con 5 héroes por página
+curl http://localhost:3000/api/heroes?page=2&limit=5
+```
+
+### Combinar filtros y paginación
+
+```bash
+# Filtrar héroes con 'man' en el nombre, página 1, 3 resultados por página
+curl http://localhost:3000/api/heroes?name=man&page=1&limit=3
+```
+
+### Obtener un héroe específico por ID
+
+```bash
+curl http://localhost:3000/api/heroes/1
 ```
 
 ## Próximos Pasos
