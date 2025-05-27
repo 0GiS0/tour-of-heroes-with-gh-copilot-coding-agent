@@ -9,7 +9,7 @@ GET {{baseUrl}}/heroes HTTP/1.1
 GET {{baseUrl}}/heroes?page=1&limit=5 HTTP/1.1
 
 ### Get heroes filtered by name
-GET {{baseUrl}}/heroes?name=man HTTP/1.1
+GET {{baseUrl}}/heroes?name=Spider-Man HTTP/1.1
 
 ### Get heroes filtered by power
 GET {{baseUrl}}/heroes?powers=strength HTTP/1.1
