@@ -19,6 +19,13 @@ export interface PaginatedHeroes {
   totalPages: number;
 }
 
+// Define interface for hero creation result
+export interface CreateHeroResult {
+  success: boolean;
+  hero?: Hero;
+  error?: string;
+}
+
 export class HeroService {
   /**
    * Get heroes from the database with filtering and pagination
@@ -86,6 +93,72 @@ export class HeroService {
     } catch (error) {
       console.error(`Error fetching hero with id ${id}:`, error);
       return null;
+    }
+  }
+
+  /**
+   * Create a new hero in the database
+   * @param hero Hero data to create
+   * @returns Promise resolving to create result with success flag and hero or error
+   */
+  async createHero(hero: Omit<Hero, 'id'>): Promise<CreateHeroResult> {
+    try {
+      // Check if a hero with the same name already exists
+      const existingHeroByName = await HeroModel.findOne({ name: hero.name });
+      if (existingHeroByName) {
+        return {
+          success: false,
+          error: `A hero with the name "${hero.name}" already exists`,
+        };
+      }
+
+      // Check if any hero has the same set of powers
+      const heroes = await HeroModel.find({});
+      const heroWithSamePowers = heroes.find((existingHero) => {
+        // Check if powers arrays have the same elements
+        if (existingHero.powers.length !== hero.powers.length) {
+          return false;
+        }
+
+        // Check if all powers in the new hero exist in the existing hero
+        return (
+          hero.powers.every((power) => existingHero.powers.includes(power)) &&
+          existingHero.powers.every((power) => hero.powers.includes(power))
+        );
+      });
+
+      if (heroWithSamePowers) {
+        return {
+          success: false,
+          error: `A hero with the same powers already exists (${heroWithSamePowers.name})`,
+        };
+      }
+
+      // Generate a new ID (get the max ID and add 1)
+      const maxIdHero = await HeroModel.findOne().sort({ id: -1 });
+      const newId = maxIdHero ? maxIdHero.id + 1 : 1;
+
+      // Create the new hero
+      const newHero = new HeroModel({
+        id: newId,
+        name: hero.name,
+        alterEgo: hero.alterEgo,
+        powers: hero.powers,
+        team: hero.team,
+      });
+
+      await newHero.save();
+
+      return {
+        success: true,
+        hero: newHero,
+      };
+    } catch (error) {
+      console.error('Error creating hero:', error);
+      return {
+        success: false,
+        error: 'An unexpected error occurred while creating the hero',
+      };
     }
   }
 }
