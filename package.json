@@ -11,6 +11,7 @@
     "lint": "eslint './src/**/*.ts'",
     "lint:fix": "eslint './src/**/*.ts' --fix",
     "format": "prettier --write \"src/**/*.ts\"",
+    "seed": "node --loader ts-node/esm src/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,8 +19,10 @@
   "license": "ISC",
   "dependencies": {
     "@types/express": "^5.0.2",
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^22.15.21",
     "express": "^5.1.0",
+    "mongoose": "^8.15.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"

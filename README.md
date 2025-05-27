@@ -19,6 +19,12 @@ cd tour-of-heroes-with-gh-copilot-coding-agent
 # Instalar dependencias
 npm install
 
+# Configurar la base de datos MongoDB
+# Asegúrate de tener MongoDB ejecutándose en localhost:27017 o configura la variable de entorno MONGODB_URI
+
+# Cargar datos iniciales en la base de datos
+npm run seed
+
 # Iniciar en modo desarrollo
 npm run dev
 ```
