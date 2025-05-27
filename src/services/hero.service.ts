@@ -26,6 +26,12 @@ export interface CreateHeroResult {
   error?: string;
 }
 
+// Define interface for hero deletion result
+export interface DeleteHeroResult {
+  success: boolean;
+  error?: string;
+}
+
 export class HeroService {
   /**
    * Get heroes from the database with filtering and pagination
@@ -143,6 +149,34 @@ export class HeroService {
       return {
         success: false,
         error: 'An unexpected error occurred while creating the hero',
+      };
+    }
+  }
+
+  /**
+   * Delete a hero by id from the database
+   * @param id Hero id to delete
+   * @returns Promise resolving to delete result with success flag and error if applicable
+   */
+  async deleteHeroById(id: number): Promise<DeleteHeroResult> {
+    try {
+      const deletedHero = await HeroModel.findOneAndDelete({ id });
+
+      if (!deletedHero) {
+        return {
+          success: false,
+          error: 'Hero not found',
+        };
+      }
+
+      return {
+        success: true,
+      };
+    } catch (error) {
+      console.error(`Error deleting hero with id ${id}:`, error);
+      return {
+        success: false,
+        error: 'An unexpected error occurred while deleting the hero',
       };
     }
   }

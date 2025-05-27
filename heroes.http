@@ -72,3 +72,6 @@ Content-Type: {{contentType}}
   "powers": ["Wall-Crawling", "Spider-Sense", "Super Strength"],
   "team": "Avengers"
 }
+
+### Delete a hero by ID
+DELETE {{baseUrl}}/heroes/1 HTTP/1.1
