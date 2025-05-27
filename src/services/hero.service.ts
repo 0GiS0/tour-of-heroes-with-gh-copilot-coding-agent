@@ -113,18 +113,8 @@ export class HeroService {
       }
 
       // Check if any hero has the same set of powers
-      const heroes = await HeroModel.find({});
-      const heroWithSamePowers = heroes.find((existingHero) => {
-        // Check if powers arrays have the same elements
-        if (existingHero.powers.length !== hero.powers.length) {
-          return false;
-        }
-
-        // Check if all powers in the new hero exist in the existing hero
-        return (
-          hero.powers.every((power) => existingHero.powers.includes(power)) &&
-          existingHero.powers.every((power) => hero.powers.includes(power))
-        );
+      const heroWithSamePowers = await HeroModel.findOne({
+        powers: { $size: hero.powers.length, $all: hero.powers },
       });
 
       if (heroWithSamePowers) {
