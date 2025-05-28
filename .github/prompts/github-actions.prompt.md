@@ -1,5 +1,5 @@
 ---
-mode: 'ask'
+mode: 'agent'
 description: 'Improve GitHub Actions by adding best practices and optimizations.'
 ---
 
