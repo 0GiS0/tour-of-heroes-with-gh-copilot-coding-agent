@@ -23,3 +23,7 @@ Verifica que las acciones de GitHub Actions son las últimas versiones y que est
 ## Si te piden crear un archivo de tipo TypeScript
 
 Sigue las buenas prácticas de #.github/instructions/typescript.instructions.md.
+
+# Si te piden crear un flujo de trabajo de GitHub Actions
+
+Sigue las buenas prácticas de #.github/instructions/github.actions.instructions.md.
