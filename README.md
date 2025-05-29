@@ -2,6 +2,12 @@
 
 Una API REST para gestionar superhéroes, implementada con Node.js y TypeScript. Este proyecto proporciona un backend sencillo para la aplicación "Tour of Heroes" con endpoints para obtener, crear, actualizar y eliminar datos de héroes.
 
+## Repositorio de ejemplo de mi vídeo de Youtube
+
+Este repo fue creado como parte de mi vídeo de YouTube [Asigna tareas a GitHub Copilot como a un dev más 🧑‍💻 | Copilot Coding Agent](https://youtu.be/UiJj7pjTN_Y):
+
+[![Tour of Heroes API - YouTube Video](docs/images/Cómo%20usar%20el%20nuevo%20Coding%20Agent%20de%20GitHub%20Copilot.png)](https://youtu.be/UiJj7pjTN_Y)
+
 ## 📋 Resumen
 
 - **Tipo**: API REST
