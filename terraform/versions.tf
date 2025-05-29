@@ -6,7 +6,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 3.0.0, < 4.30.1"
+      version = ">= 3.0.0, < 4.31.1"
       configuration_aliases = [azurerm.this]
     }
   }
