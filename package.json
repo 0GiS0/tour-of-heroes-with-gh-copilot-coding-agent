@@ -20,7 +20,7 @@
   "dependencies": {
     "@types/express": "^5.0.2",
     "@types/mongoose": "^5.11.96",
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.15.29",
     "express": "^5.1.0",
     "mongoose": "^8.15.1",
     "ts-node": "^10.9.2",
