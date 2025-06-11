@@ -8,5 +8,6 @@ const heroController = new HeroController();
 router.get('/', (req, res, next) => heroController.getHeroes(req, res, next));
 router.get('/:id', (req, res, next) => heroController.getHeroById(req, res, next));
 router.post('/', (req, res, next) => heroController.createHero(req, res, next));
+router.delete('/:id', (req, res, next) => heroController.deleteHero(req, res, next));
 
 export default router;
