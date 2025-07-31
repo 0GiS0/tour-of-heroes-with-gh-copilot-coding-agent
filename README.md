@@ -1,5 +1,7 @@
 # Tour of Heroes API
 
+*[🇺🇸 Read this in English](./README-en.md)*
+
 Una API REST para gestionar superhéroes, implementada con Node.js y TypeScript. Este proyecto proporciona un backend sencillo para la aplicación "Tour of Heroes" con endpoints para obtener, crear, actualizar y eliminar datos de héroes.
 
 ## Repositorio de ejemplo de mi vídeo de Youtube
