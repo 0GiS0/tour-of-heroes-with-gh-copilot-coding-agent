@@ -35,3 +35,13 @@ output "subnet_id" {
   description = "The ID of the subnet"
   value       = module.network.subnet_id
 }
+
+output "storage_account_name" {
+  description = "The name of the Azure Storage Account"
+  value       = module.storage_account.name
+}
+
+output "storage_account_id" {
+  description = "The ID of the Azure Storage Account"
+  value       = module.storage_account.id
+}

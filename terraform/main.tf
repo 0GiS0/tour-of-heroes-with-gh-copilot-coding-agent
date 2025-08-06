@@ -57,3 +57,19 @@ module "aks" {
 
   depends_on = [module.network]
 }
+
+# Azure Storage Account
+module "storage_account" {
+  source  = "github.com/0GiS0/terraform-modules//modules/azure/storage-account"
+  providers = {
+    azurerm      = azurerm.this
+    azurerm.this = azurerm.this
+  }
+
+  name                = var.storage_account_name
+  resource_group_name = module.resource_group.resource_group_name
+  location            = var.location
+  tags                = var.tags
+  # Puedes añadir más variables según la documentación del módulo
+}
+

@@ -108,3 +108,9 @@ variable "os_disk_size_gb" {
   type        = number
   default     = 30
 }
+
+variable "storage_account_name" {
+  description = "The name of the Azure Storage Account"
+  type        = string
+  default     = "heroesstorage${random_integer.suffix.result}"
+}
