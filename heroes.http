@@ -72,3 +72,12 @@ Content-Type: {{contentType}}
   "powers": ["Wall-Crawling", "Spider-Sense", "Super Strength"],
   "team": "Avengers"
 }
+
+### Delete hero without confirmation (will fail)
+DELETE {{baseUrl}}/heroes/1 HTTP/1.1
+
+### Delete hero with confirmation
+DELETE {{baseUrl}}/heroes/1?confirm=true HTTP/1.1
+
+### Delete non-existent hero (will fail)
+DELETE {{baseUrl}}/heroes/999?confirm=true HTTP/1.1

@@ -141,4 +141,44 @@ export class HeroController {
       next(error);
     }
   }
+
+  /**
+   * Delete a hero by ID
+   * @route DELETE /api/heroes/:id
+   * @param {number} id - Hero ID
+   * @query {boolean} confirm - Confirmation flag to ensure deletion is intentional
+   * @returns {Object} Success message or error message
+   */
+  async deleteHero(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const id = Number(req.params.id);
+      const confirm = req.query.confirm === 'true';
+
+      if (isNaN(id)) {
+        res.status(400).json({ error: 'Invalid hero ID. ID must be a number.' });
+        return;
+      }
+
+      const result = await this.heroService.deleteHero(id, confirm);
+
+      if (!result.success) {
+        // Determine appropriate status code based on error
+        if (result.error === 'Confirmation is required to delete a hero') {
+          res.status(400).json({ error: result.error });
+        } else if (result.error?.includes('not found')) {
+          res.status(404).json({ error: result.error });
+        } else {
+          res.status(500).json({ error: result.error });
+        }
+        return;
+      }
+
+      res.status(200).json({
+        success: true,
+        message: result.message,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }

@@ -131,6 +131,41 @@ La API proporciona los siguientes endpoints principales:
 - `PUT /api/heroes/:id`: Actualiza un héroe existente
 - `DELETE /api/heroes/:id`: Elimina un héroe por su ID
 
+#### Eliminar un héroe
+
+- **Endpoint**: `DELETE /api/heroes/:id`
+- **Descripción**: Elimina un héroe específico de la base de datos (solo para casos justificados)
+- **Parámetros de ruta**:
+  - `id`: ID numérico del héroe
+- **Parámetros de consulta**:
+  - `confirm`: Booleano (true/false) que confirma explícitamente la intención de eliminar
+- **Respuesta exitosa** (código 200):
+  ```json
+  {
+    "success": true,
+    "message": "Hero Superman has been deleted"
+  }
+  ```
+- **Respuestas de error**:
+  - Sin confirmación (código 400):
+    ```json
+    {
+      "error": "Confirmation is required to delete a hero"
+    }
+    ```
+  - Héroe no encontrado (código 404):
+    ```json
+    {
+      "error": "Hero with ID 999 not found"
+    }
+    ```
+  - Error del servidor (código 500):
+    ```json
+    {
+      "error": "An unexpected error occurred while deleting the hero"
+    }
+    ```
+
 ## Ejemplos de Uso
 
 ### Obtener todos los héroes
@@ -175,6 +210,12 @@ curl http://localhost:3000/api/heroes?name=man&page=1&limit=3
 
 ```bash
 curl http://localhost:3000/api/heroes/1
+```
+
+### Eliminar un héroe (con confirmación)
+
+```bash
+curl -X DELETE http://localhost:3000/api/heroes/1?confirm=true
 ```
 
 ## Próximos Pasos

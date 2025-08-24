@@ -26,6 +26,13 @@ export interface CreateHeroResult {
   error?: string;
 }
 
+// Define interface for hero deletion result
+export interface DeleteHeroResult {
+  success: boolean;
+  message?: string;
+  error?: string;
+}
+
 export class HeroService {
   /**
    * Get heroes from the database with filtering and pagination
@@ -143,6 +150,50 @@ export class HeroService {
       return {
         success: false,
         error: 'An unexpected error occurred while creating the hero',
+      };
+    }
+  }
+
+  /**
+   * Delete a hero from the database
+   * @param id Hero id to delete
+   * @param confirm Confirmation flag to ensure deletion is intentional
+   * @returns Promise resolving to delete result with success flag and message or error
+   */
+  async deleteHero(id: number, confirm: boolean): Promise<DeleteHeroResult> {
+    try {
+      // Check if confirmation is provided
+      if (!confirm) {
+        return {
+          success: false,
+          error: 'Confirmation is required to delete a hero',
+        };
+      }
+
+      // Check if hero exists
+      const hero = await HeroModel.findOne({ id });
+      if (!hero) {
+        return {
+          success: false,
+          error: `Hero with ID ${id} not found`,
+        };
+      }
+
+      // Delete the hero
+      await HeroModel.deleteOne({ id });
+
+      // Log the deletion for audit purposes
+      console.log(`Hero deleted: ${hero.name} (ID: ${id}) at ${new Date().toISOString()}`);
+
+      return {
+        success: true,
+        message: `Hero ${hero.name} has been deleted`,
+      };
+    } catch (error) {
+      console.error(`Error deleting hero with id ${id}:`, error);
+      return {
+        success: false,
+        error: 'An unexpected error occurred while deleting the hero',
       };
     }
   }
