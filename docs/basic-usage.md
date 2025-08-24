@@ -131,6 +131,25 @@ La API proporciona los siguientes endpoints principales:
 - `PUT /api/heroes/:id`: Actualiza un héroe existente
 - `DELETE /api/heroes/:id`: Elimina un héroe por su ID
 
+#### Eliminar un héroe por ID
+
+- **Endpoint**: `DELETE /api/heroes/:id`
+- **Descripción**: Elimina un héroe específico de la base de datos
+- **Parámetros de ruta**:
+  - `id`: ID numérico del héroe
+- **Respuesta exitosa** (código 200):
+  ```json
+  {
+    "message": "Hero deleted successfully"
+  }
+  ```
+- **Respuesta de error** (código 404):
+  ```json
+  {
+    "error": "Hero not found"
+  }
+  ```
+
 ## Ejemplos de Uso
 
 ### Obtener todos los héroes
@@ -175,6 +194,12 @@ curl http://localhost:3000/api/heroes?name=man&page=1&limit=3
 
 ```bash
 curl http://localhost:3000/api/heroes/1
+```
+
+### Eliminar un héroe por ID
+
+```bash
+curl -X DELETE http://localhost:3000/api/heroes/1
 ```
 
 ## Próximos Pasos

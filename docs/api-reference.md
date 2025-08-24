@@ -117,6 +117,42 @@ Recupera la información detallada de un héroe específico usando su ID.
 }
 ```
 
+### Eliminar un héroe por ID
+
+Elimina un héroe específico usando su ID.
+
+**Endpoint**: `DELETE /api/heroes/:id`
+
+**Parámetros de ruta**:
+
+| Parámetro | Tipo   | Descripción      | Ejemplo   |
+|-----------|--------|------------------|-----------|
+| id        | number | ID del héroe     | /api/heroes/1 |
+
+**Respuesta exitosa** (código 200):
+
+```json
+{
+  "message": "Hero deleted successfully"
+}
+```
+
+**Respuesta de error** (código 404):
+
+```json
+{
+  "error": "Hero not found"
+}
+```
+
+**Respuesta de error** (código 400):
+
+```json
+{
+  "error": "Invalid hero ID. ID must be a number."
+}
+```
+
 ## Manejo de Errores
 
 La API utiliza los siguientes códigos de estado HTTP:
@@ -158,4 +194,10 @@ curl http://localhost:3000/api/heroes/1
 
 ```bash
 curl http://localhost:3000/api/heroes?team=Justice&page=1&limit=2
+```
+
+### Eliminar un héroe específico
+
+```bash
+curl -X DELETE http://localhost:3000/api/heroes/1
 ```
