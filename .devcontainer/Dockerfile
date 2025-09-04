@@ -1,5 +1,5 @@
 # 🖥️ Imagen base oficial de Microsoft para TypeScript/Node.js
-FROM mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
+FROM mcr.microsoft.com/devcontainers/typescript-node:24-bookworm
 
 # 🔧 Argumentos para configurar el usuario
 ARG USERNAME=node
